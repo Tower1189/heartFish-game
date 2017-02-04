@@ -35,6 +35,22 @@ var momBodyBlue = [];
 
 var data;
 
+//wave
+var wave;
+//halo
+var halo;
+
+//dust
+var dust;
+var dustPic = [];
+
+
+
+
+
+
+
+
 init();
 
 
@@ -113,6 +129,23 @@ function init() {
     //font style set   set once is OK
     ctx1.font = "30px Verdana";
     ctx1.textAlign = "center";
+
+    //wave
+    wave = new waveObj();
+    wave.init();
+
+    //halo
+    halo = new haloObj();
+    halo.init();
+
+    //dust
+
+    for (var i = 0; i < 7; i++) {
+        dustPic[i] = new Image();
+        dustPic[i].src = "./img/dust"+ i + ".png";
+    }
+    dust = new dustObj();
+    dust.init();
 }
 
 
@@ -148,6 +181,14 @@ function gameLoop(){
 
     //data
     data.draw();
+
+    //wave
+    wave.draw();
+    //halo
+    halo.draw();
+
+    //dust
+    dust.draw();
 }
 gameLoop();
 

@@ -69,9 +69,9 @@ babyObj.prototype.draw = function () {
 
     //baby body count
     this.babyBodyTimer += deltaTime;
-    if(this.babyBodyTimer > 300) {
+    if(this.babyBodyTimer > 130) {  //小鱼死亡速度  之前是300
         this.babyBodyCount = this.babyBodyCount + 1;
-        this.babyBodyTimer %= 300;
+        this.babyBodyTimer %= 130;
         if(this.babyBodyCount > 19) {
             this.babyBodyCount = 19;
             //game over

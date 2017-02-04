@@ -5,6 +5,7 @@ var fruitObj = function() {
     this.alive = [];//bool
     this.x = [];
     this.y = [];
+    this.aneNO = [];
     this.l = [];  // pic length
     this.spd = []; // speed   born speed and up float speed
     this.fruitType = [];
@@ -18,6 +19,7 @@ fruitObj.prototype.init = function () {
         this.alive[i] = false;
         this.x[i] = 0;
         this.y[i] = 0;
+        this.aneNO[i] = 0;
         this.spd[i] = Math.random() * 0.017 + 0.003;//speed [0.005,0.015)
         this.born(i);
         this.fruitType[i] = "";
@@ -37,9 +39,14 @@ fruitObj.prototype.draw = function () {
                var pic = this.orange;
            }
            if(this.l[i] <= 15) {  //no result it continue greater
+               var NO = this.aneNO[i];
+               this.x[i] = ane.headx[NO];
+               this.y[i] = ane.heady[NO];
                this.l[i] += this.spd[i] * deltaTime;
+               //ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5,this.l[i],this.l[i]);
            }else {
                this.y[i] -= this.spd[i] * 7 * deltaTime;
+
            }
            ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5,this.l[i],this.l[i]);
            if(this.y[i] < - 10) {
@@ -52,9 +59,7 @@ fruitObj.prototype.draw = function () {
 
 fruitObj.prototype.born = function (i){
     // fruit born coord
-    var aneID = Math.ceil(Math.random() * ane.num);
-    this.x[i] = ane.x[aneID];
-    this.y[i] = canHeight - ane.len[aneID];
+    this.aneNO[i] = Math.ceil(Math.random() * ane.num);
     this.l[i] = 0;
     this.alive[i] = true;
 

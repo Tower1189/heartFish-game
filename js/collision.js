@@ -18,11 +18,12 @@ function momFruitsCollision() {
                     {
                         data.double = 2;
                     }
+                    //wave.born();
+                    wave.born(fruit.x[i], fruit.y[i]);
                 }
             }
         }
     }
-
 }
 
 // mom baby collision
@@ -37,6 +38,7 @@ function momBabyCollision() {
             mom.momBodyCount = 0;
             //score update
             data.addScore();
+            halo.born(mom.x, mom.y);
         }
     }
 
