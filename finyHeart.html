@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            padding-top: 10px;
+        }
+        .all_bg{
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        #allcanvas{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 0;
+        }
+        #canvas1,#canvas2{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        #canvas2{
+            z-index: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="all_bg">
+        <div id="allcanvas">
+            <canvas id="canvas1" width="800" height="600"></canvas>
+            <canvas id="canvas2" width="800" height="600"></canvas>
+        </div>
+    </div>
+    <script src="js/background.js"></script>
+    <script src="js/ane.js"></script>
+    <script src="js/fruit.js"></script>
+    <script src="js/mom.js"></script>
+    <script src="js/collision.js"></script>
+    <script src="js/baby.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+
+
+<!--//question-->
+
+<!--1.js引用的顺序-->
+<!--2.重构函数-->
+<!--3.ctx1.drawImage(this.eye,-this.eye.width / 2,-this.eye.height / 2); 绘制图片坐标位置问题-->
